@@ -1,0 +1,65 @@
+{
+  "name": "agentseal-mcp-intel",
+  "version": "0.1.0",
+  "description": "MCP server for AgentSeal — find safe MCP servers, check security before installing, and scan your AI dev environment from inside your AI coding assistant",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "security",
+    "ai-safety",
+    "agentseal",
+    "mcp-security",
+    "prompt-injection",
+    "tool-poisoning",
+    "cursor",
+    "claude"
+  ],
+  "homepage": "https://agentseal.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentseal/agentseal-mcp-intel"
+  },
+  "bugs": {
+    "url": "https://github.com/agentseal/agentseal-mcp-intel/issues"
+  },
+  "license": "FSL-1.1-Apache-2.0",
+  "author": "AgentSeal <hello@agentseal.org>",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "./dist/index.js",
+  "bin": {
+    "agentseal-mcp-intel": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}
