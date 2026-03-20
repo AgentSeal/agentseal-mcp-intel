@@ -4,3 +4,5 @@ tsconfig*.json
 vitest.config.ts
 *.log
 .env*
+*.map
+PLAN.md
