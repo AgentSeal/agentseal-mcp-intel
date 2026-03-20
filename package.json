@@ -1,6 +1,6 @@
 {
   "name": "agentseal-mcp-intel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for AgentSeal — find safe MCP servers, check security before installing, and scan your AI dev environment from inside your AI coding assistant",
   "keywords": [
     "mcp",
