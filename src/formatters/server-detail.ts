@@ -87,7 +87,7 @@ export function formatServerDetail(
   if (server.findings_gated && !opts.isPro) {
     sections.push("");
     sections.push("  ⊘ Full details require Pro  - descriptions, evidence, and remediation");
-    sections.push("    → agentseal.org/settings/api-keys");
+    sections.push("    → agentseal.org/pricing");
   } else if (server.findings.length > 0) {
     sections.push("");
     for (const f of server.findings) {

@@ -82,7 +82,7 @@ export async function searchRegistry(
     }
 
     if (!client.isPro) {
-      lines.push("⊘ Pro: full findings on each result  →  agentseal.org/settings/api-keys");
+      lines.push("⊘ Pro: full findings on each result  →  agentseal.org/pricing");
     }
 
     return lines.join("\n").trimEnd();

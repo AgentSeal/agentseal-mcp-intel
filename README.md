@@ -18,7 +18,7 @@
 
 <p align="center">
   <a href="https://agentseal.org/mcp">MCP Registry</a> &middot;
-  <a href="https://agentseal.org/pro">Pro</a> &middot;
+  <a href="https://agentseal.org/pricing">Pricing</a> &middot;
   <a href="https://agentseal.org">Website</a>
 </p>
 
@@ -293,7 +293,7 @@ Claude: [calls check_environment()]
 | Finding details (evidence, remediation) | -- | Yes |
 | Priority scanning | -- | Yes |
 
-Get a Pro key at [agentseal.org/pro](https://agentseal.org/pro).
+Get a Pro key at [agentseal.org/pricing](https://agentseal.org/pricing).
 
 ---
 

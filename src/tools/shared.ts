@@ -18,7 +18,7 @@ export function userFacingError(err: unknown): string {
       waitMsg,
       "",
       "Unlock unlimited access with a Pro API key:",
-      "  https://agentseal.org/settings/api-keys",
+      "  https://agentseal.org/pricing",
       "",
       "Set it in your MCP config:",
       '  "env": { "AGENTSEAL_API_KEY": "your-key-here" }',
@@ -32,7 +32,7 @@ export function userFacingError(err: unknown): string {
       "Free tier shows trust scores and finding counts.",
       "Pro tier shows findings, evidence, and remediation steps.",
       "",
-      "Get your key at: https://agentseal.org/settings/api-keys",
+      "Get your key at: https://agentseal.org/pricing",
     ].join("\n");
   }
 
