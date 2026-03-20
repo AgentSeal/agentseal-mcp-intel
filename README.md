@@ -6,7 +6,13 @@
 [![License: FSL-1.1-Apache-2.0](https://img.shields.io/badge/License-FSL--1.1-blue.svg)](LICENSE)
 
 <p align="center">
-  <img src="https://agentseal.org/og-mcp-intel.png" alt="AgentSeal MCP Intel" width="600" />
+  <a href="https://agentseal.org/mcp">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://agentseal.org/logo-dark.png" />
+      <source media="(prefers-color-scheme: light)" srcset="https://agentseal.org/logo.png" />
+      <img src="https://agentseal.org/logo.png" alt="AgentSeal" height="80" />
+    </picture>
+  </a>
 </p>
 
 ---
