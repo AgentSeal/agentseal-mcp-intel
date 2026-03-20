@@ -21,7 +21,7 @@ export const submitServerSchema = z.object({
     .describe(
       "Must be true to confirm submission. Set to false to preview what would be submitted without actually submitting.",
     ),
-});
+}).strict();
 
 export type SubmitServerArgs = z.infer<typeof submitServerSchema>;
 

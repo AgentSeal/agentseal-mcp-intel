@@ -20,7 +20,7 @@ export const checkEnvironmentSchema = z.object({
     .describe(
       "If true, shows which config files would be scanned and which servers would be checked  - without making any API calls",
     ),
-});
+}).strict();
 
 export type CheckEnvironmentArgs = z.infer<typeof checkEnvironmentSchema>;
 

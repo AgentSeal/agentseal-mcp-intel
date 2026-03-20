@@ -30,7 +30,7 @@ export const searchRegistrySchema = z.object({
     .optional()
     .default(10)
     .describe("Max results to return (default: 10, max: 20)"),
-});
+}).strict();
 
 export type SearchRegistryArgs = z.infer<typeof searchRegistrySchema>;
 

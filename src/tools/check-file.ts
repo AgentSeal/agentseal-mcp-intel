@@ -13,7 +13,7 @@ export const checkFileSchema = z.object({
     .describe(
       "Path to an AI config file to analyze. Supported: .cursorrules, CLAUDE.md, .github/copilot-instructions.md, .windsurfrules, .mcp.json",
     ),
-});
+}).strict();
 
 export type CheckFileArgs = z.infer<typeof checkFileSchema>;
 

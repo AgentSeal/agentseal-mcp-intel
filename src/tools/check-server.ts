@@ -13,7 +13,7 @@ export const checkServerSchema = z.object({
     .describe(
       "Package name or slug to check. Examples: '@modelcontextprotocol/server-github', 'filesystem', 'mcp-server-postgres', 'https://github.com/org/repo'",
     ),
-});
+}).strict();
 
 export type CheckServerArgs = z.infer<typeof checkServerSchema>;
 
