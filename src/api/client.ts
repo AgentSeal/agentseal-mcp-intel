@@ -40,7 +40,7 @@ export class ApiClient {
     this.headers = {
       "Content-Type": "application/json",
       "User-Agent": `agentseal-mcp-intel/${SERVER_VERSION}`,
-      // Identifies MCP traffic server-side — enables separate rate limit buckets
+      // Identifies MCP traffic server-side  - enables separate rate limit buckets
       "X-AgentSeal-Client": "mcp-intel",
     };
 
@@ -62,7 +62,7 @@ export class ApiClient {
 
   /**
    * Make an HTTP request with automatic retries and error translation.
-   * Tools should never call this directly — use the typed methods below.
+   * Tools should never call this directly  - use the typed methods below.
    */
   private async request<T>(
     method: "GET" | "POST",
@@ -93,7 +93,7 @@ export class ApiClient {
 
         clearTimeout(timeoutId);
 
-        // Rate limit — honour Retry-After, capped at 30s
+        // Rate limit  - honour Retry-After, capped at 30s
         if (response.status === 429) {
           const wait = Math.min(
             parseInt(response.headers.get("Retry-After") ?? "60", 10) * 1000,

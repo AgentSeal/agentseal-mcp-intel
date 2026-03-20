@@ -6,16 +6,16 @@ import { verdictLine, scoreBar, formatDate, alarmLine } from "./trust-badge.js";
  *
  * Example output (position = 1, HIGH trust):
  *   ── 1 ───────────────────────────────────────────────────────────
- *   [AgentSeal] @modelcontextprotocol/server-postgres  ◈ HIGH — 82/100
+ *   [AgentSeal] @modelcontextprotocol/server-postgres  ◈ HIGH  - 82/100
  *   ████████████████░░░░  82/100
  *   Connect Claude to PostgreSQL databases
  *   ★ 1,204 · by modelcontextprotocol · Mar 10, 2026
  *   → agentseal.org/mcp/modelcontextprotocol-server-postgres
  *
  * Example output (CRITICAL trust):
- *   [AgentSeal] postgres-mcp-dangerous  ✕ CRITICAL — 18/100
+ *   [AgentSeal] postgres-mcp-dangerous  ✕ CRITICAL  - 18/100
  *   ████░░░░░░░░░░░░░░░░  18/100
- *   !! DO NOT INSTALL — 5 critical findings
+ *   !! DO NOT INSTALL  - 5 critical findings
  *
  * @param server    Server summary from the registry.
  * @param position  1-based position in search results (adds a numbered divider).

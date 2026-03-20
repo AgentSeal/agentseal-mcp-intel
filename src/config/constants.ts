@@ -13,7 +13,7 @@ export const RETRY_BASE_DELAY_MS = 500;
 /** Maximum file size accepted by check_file (bytes). Anything larger is not a config file. */
 export const MAX_FILE_SIZE_BYTES = 500_000;
 
-/** MCP server version — kept in sync with package.json. */
+/** MCP server version  - kept in sync with package.json. */
 export const SERVER_VERSION = "0.1.0";
 
 /** Server name reported to the MCP client. */
@@ -21,7 +21,7 @@ export const SERVER_NAME = "agentseal-mcp-intel";
 
 /**
  * Allowlist of filename patterns accepted by check_file.
- * Only known AI config file types are permitted — arbitrary paths are rejected.
+ * Only known AI config file types are permitted  - arbitrary paths are rejected.
  */
 export const ALLOWED_FILE_PATTERNS: RegExp[] = [
   /\.cursorrules$/i,

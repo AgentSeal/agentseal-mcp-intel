@@ -18,7 +18,7 @@ export const checkEnvironmentSchema = z.object({
     .optional()
     .default(false)
     .describe(
-      "If true, shows which config files would be scanned and which servers would be checked — without making any API calls",
+      "If true, shows which config files would be scanned and which servers would be checked  - without making any API calls",
     ),
 });
 
@@ -57,10 +57,10 @@ export async function checkEnvironment(
       ].join("\n");
     }
 
-    // 3. Dry run — show what would be scanned
+    // 3. Dry run  - show what would be scanned
     if (args.dry_run) {
       const previewLines: string[] = [
-        "DRY RUN — nothing will be sent to the API",
+        "DRY RUN  - nothing will be sent to the API",
         "",
         "Config files that would be scanned:",
         ...existingPaths.map(p => `  ✓ ${p}`),
@@ -78,7 +78,7 @@ export async function checkEnvironment(
           previewLines.push(`  ${s.name}  [from ${shortenPath(s.configFile)}]`);
         }
         previewLines.push("");
-        previewLines.push("Only server names are sent to agentseal.org — never credentials or config values.");
+        previewLines.push("Only server names are sent to agentseal.org  - never credentials or config values.");
       } else {
         previewLines.push("No MCP servers found in those config files.");
       }
@@ -86,7 +86,7 @@ export async function checkEnvironment(
       return previewLines.join("\n");
     }
 
-    // 4. Parse all config files — extract server names only
+    // 4. Parse all config files  - extract server names only
     const discovered = (
       await Promise.all(existingPaths.map(p => parseConfigFile(p)))
     ).flat();

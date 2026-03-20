@@ -73,7 +73,7 @@ export interface McpServerList {
 
 /** Response from the submit endpoint. */
 export interface SubmissionResponse {
-  /** Unique ID for this submission — use to check scan status. */
+  /** Unique ID for this submission  - use to check scan status. */
   submission_id: string;
   status: "queued" | "scanning" | "complete" | "failed";
   message: string;

@@ -26,7 +26,7 @@ beforeEach(() => {
 
 // ── Path traversal / allowlist enforcement ───────────────────────────────────
 
-describe("checkFile — path traversal protection", () => {
+describe("checkFile  - path traversal protection", () => {
   it("rejects /etc/passwd immediately (no fs calls)", async () => {
     const result = await checkFile({ path: "/etc/passwd" });
     expect(result).toContain("File type not supported");
@@ -73,10 +73,10 @@ describe("checkFile — path traversal protection", () => {
 
 // ── Symlink traversal protection ─────────────────────────────────────────────
 
-describe("checkFile — symlink protection", () => {
+describe("checkFile  - symlink protection", () => {
   it("rejects a CLAUDE.md symlink pointing to /etc/passwd", async () => {
     mockStat.mockResolvedValue(REGULAR_FILE_STAT);
-    // realpath returns the real target — a non-allowed file
+    // realpath returns the real target  - a non-allowed file
     mockRealpath.mockResolvedValue("/etc/passwd");
 
     const result = await checkFile({ path: "/project/CLAUDE.md" });
@@ -106,7 +106,7 @@ describe("checkFile — symlink protection", () => {
 
 // ── File size limit ───────────────────────────────────────────────────────────
 
-describe("checkFile — file size limit", () => {
+describe("checkFile  - file size limit", () => {
   it("rejects files larger than 500KB", async () => {
     mockStat.mockResolvedValue({
       isFile: () => true,
@@ -134,7 +134,7 @@ describe("checkFile — file size limit", () => {
 
 // ── Non-existent / non-regular files ─────────────────────────────────────────
 
-describe("checkFile — missing / non-regular files", () => {
+describe("checkFile  - missing / non-regular files", () => {
   it("returns 'File not found' for stat ENOENT", async () => {
     mockStat.mockRejectedValue(Object.assign(new Error("ENOENT"), { code: "ENOENT" }));
 
@@ -155,7 +155,7 @@ describe("checkFile — missing / non-regular files", () => {
 
 // ── Clean file analysis ───────────────────────────────────────────────────────
 
-describe("checkFile — clean file output", () => {
+describe("checkFile  - clean file output", () => {
   it("returns verdict line with filename and score", async () => {
     mockStat.mockResolvedValue(REGULAR_FILE_STAT);
     mockRealpath.mockResolvedValue("/project/CLAUDE.md");
@@ -168,7 +168,7 @@ describe("checkFile — clean file output", () => {
     expect(result).toContain("No suspicious patterns found");
   });
 
-  it("annotates output as (local) — no network indicator", async () => {
+  it("annotates output as (local)  - no network indicator", async () => {
     mockStat.mockResolvedValue(REGULAR_FILE_STAT);
     mockRealpath.mockResolvedValue("/project/CLAUDE.md");
     mockReadFile.mockResolvedValue("..." as unknown as Buffer);
@@ -189,7 +189,7 @@ describe("checkFile — clean file output", () => {
 
 // ── Malicious file analysis ───────────────────────────────────────────────────
 
-describe("checkFile — malicious file output", () => {
+describe("checkFile  - malicious file output", () => {
   it("shows findings count and severity for malicious content", async () => {
     mockStat.mockResolvedValue(REGULAR_FILE_STAT);
     mockRealpath.mockResolvedValue("/project/CLAUDE.md");

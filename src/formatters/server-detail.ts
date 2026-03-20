@@ -18,7 +18,7 @@ const DIVIDER = "── " + "─".repeat(60);
  * Pro tier: full findings with description, evidence, and remediation.
  *
  * Example output (HIGH trust, free tier):
- *   [AgentSeal] @modelcontextprotocol/server-github  ◈ HIGH — 82/100
+ *   [AgentSeal] @modelcontextprotocol/server-github  ◈ HIGH  - 82/100
  *   ████████████████░░░░  82/100
  *   TypeScript · MIT · 12 tools · by modelcontextprotocol · Mar 10, 2026
  *   ...
@@ -86,7 +86,7 @@ export function formatServerDetail(
 
   if (server.findings_gated && !opts.isPro) {
     sections.push("");
-    sections.push("  ⊘ Full details require Pro — descriptions, evidence, and remediation");
+    sections.push("  ⊘ Full details require Pro  - descriptions, evidence, and remediation");
     sections.push("    → agentseal.org/settings/api-keys");
   } else if (server.findings.length > 0) {
     sections.push("");

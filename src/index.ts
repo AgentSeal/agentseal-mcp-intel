@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * agentseal-mcp-intel — Entry point
+ * agentseal-mcp-intel  - Entry point
  *
  * Connects the AgentSeal MCP server to stdio transport so that
  * Claude Desktop, Cursor, Windsurf, and other MCP-compatible hosts

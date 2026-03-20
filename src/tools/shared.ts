@@ -44,11 +44,11 @@ export function userFacingError(err: unknown): string {
         "Status: https://agentseal.org/status",
       ].join("\n");
     }
-    // SERVER_ERROR and VALIDATION_ERROR — message is already sanitized by backend
+    // SERVER_ERROR and VALIDATION_ERROR  - message is already sanitized by backend
     return `AgentSeal API error: ${err.message}`;
   }
 
-  // Unknown — log internally, return generic message
+  // Unknown  - log internally, return generic message
   console.error("[agentseal-mcp-intel] Unexpected error:", err);
   return "An unexpected error occurred. Run with AGENTSEAL_DEBUG=1 for details.";
 }

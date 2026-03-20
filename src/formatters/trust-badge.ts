@@ -4,11 +4,11 @@ import type { TrustLevel } from "../api/types.js";
  * Text-safe Unicode icons for trust levels.
  * Uses BMP characters that render identically in terminals and chat UIs.
  *
- *   ◆ EXCELLENT  solid diamond — complete, safe
- *   ◈ HIGH       diamond with dot — mostly good
- *   ◇ MEDIUM     hollow diamond — uncertain, review
- *   ▽ LOW        inverted triangle — declining, risky
- *   ✕ CRITICAL   cross — rejected, dangerous
+ *   ◆ EXCELLENT  solid diamond  - complete, safe
+ *   ◈ HIGH       diamond with dot  - mostly good
+ *   ◇ MEDIUM     hollow diamond  - uncertain, review
+ *   ▽ LOW        inverted triangle  - declining, risky
+ *   ✕ CRITICAL   cross  - rejected, dangerous
  *   · unscored
  */
 export const LEVEL_ICONS: Record<TrustLevel, string> = {
@@ -20,9 +20,9 @@ export const LEVEL_ICONS: Record<TrustLevel, string> = {
 };
 
 /**
- * Render the verdict line — the first line of every tool output.
+ * Render the verdict line  - the first line of every tool output.
  *
- * Format: [AgentSeal] {name}  {ICON} {LEVEL} — {score}/100
+ * Format: [AgentSeal] {name}  {ICON} {LEVEL}  - {score}/100
  * LLMs can quote this line verbatim as the full verdict summary.
  */
 export function verdictLine(
@@ -36,7 +36,7 @@ export function verdictLine(
     return `[AgentSeal] ${name}  · Not yet scored${suffix}`;
   }
   const icon = LEVEL_ICONS[level];
-  return `[AgentSeal] ${name}  ${icon} ${level} — ${Math.round(score)}/100${suffix}`;
+  return `[AgentSeal] ${name}  ${icon} ${level}  - ${Math.round(score)}/100${suffix}`;
 }
 
 /**
@@ -97,8 +97,8 @@ export function formatDate(iso: string): string {
 /**
  * Return an alarm line for CRITICAL/LOW servers, or null for safer servers.
  *
- *   CRITICAL or critical_count > 0:  "!! DO NOT INSTALL — N critical findings"
- *   LOW:                              "▽ HIGH RISK — review findings before installing"
+ *   CRITICAL or critical_count > 0:  "!! DO NOT INSTALL  - N critical findings"
+ *   LOW:                              "▽ HIGH RISK  - review findings before installing"
  *   Otherwise:                        null
  */
 export function alarmLine(
@@ -108,10 +108,10 @@ export function alarmLine(
 ): string | null {
   if (level === "CRITICAL" || criticalCount > 0) {
     const n = criticalCount > 0 ? criticalCount : findingsCount;
-    return `!! DO NOT INSTALL — ${n} critical finding${n !== 1 ? "s" : ""}`;
+    return `!! DO NOT INSTALL  - ${n} critical finding${n !== 1 ? "s" : ""}`;
   }
   if (level === "LOW") {
-    return "▽ HIGH RISK — review findings before installing";
+    return "▽ HIGH RISK  - review findings before installing";
   }
   return null;
 }

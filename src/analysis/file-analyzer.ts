@@ -3,7 +3,7 @@ import type { FileAnalysisResult, FileFinding } from "../api/types.js";
 /**
  * Heuristic patterns for detecting suspicious content in AI config files.
  *
- * This analysis runs ENTIRELY LOCALLY — no data leaves the machine.
+ * This analysis runs ENTIRELY LOCALLY  - no data leaves the machine.
  * Findings are based on known attack patterns from the AgentSeal probe library.
  */
 
@@ -91,7 +91,7 @@ const DETECTION_RULES: DetectionRule[] = [
     id: "always-approve",
     severity: "medium",
     type: "Unsafe Permissions",
-    description: "Instruction to always approve or skip confirmation for tool use — bypasses user safety controls.",
+    description: "Instruction to always approve or skip confirmation for tool use  - bypasses user safety controls.",
     pattern: /always\s+(approve|confirm|allow|execute|run)\s+(without|auto|automatically|no\s+confirm)/i,
   },
   {
@@ -135,7 +135,7 @@ export function detectFileType(filename: string): FileAnalysisResult["file_type"
 /**
  * Run local heuristic analysis on AI config file content.
  *
- * Entirely local — no network calls, no data transmitted.
+ * Entirely local  - no network calls, no data transmitted.
  * Returns findings with line numbers where detectable.
  */
 export function analyzeFileContent(

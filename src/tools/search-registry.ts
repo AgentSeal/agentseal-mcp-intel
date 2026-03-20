@@ -9,7 +9,7 @@ export const searchRegistrySchema = z.object({
     .string()
     .min(1, "Search query cannot be empty")
     .max(200, "Query too long")
-    .describe("What you need — e.g. 'PostgreSQL database', 'web scraping', 'send email'"),
+    .describe("What you need  - e.g. 'PostgreSQL database', 'web scraping', 'send email'"),
 
   category: z
     .enum(VALID_CATEGORIES)

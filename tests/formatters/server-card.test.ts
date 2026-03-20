@@ -51,7 +51,7 @@ describe("formatServerCard", () => {
     const card = formatServerCard(
       makeServer({ trust_level: "MEDIUM", trust_score: 55, critical_count: 2, description: "hidden" })
     );
-    expect(card).toContain("!! DO NOT INSTALL — 2 critical findings");
+    expect(card).toContain("!! DO NOT INSTALL  - 2 critical findings");
     expect(card).not.toContain("hidden");
   });
 
@@ -95,7 +95,7 @@ describe("formatServerCard", () => {
   it("truncates long descriptions to 120 chars", () => {
     const longDesc = "x".repeat(200);
     const card = formatServerCard(makeServer({ description: longDesc }));
-    // Truncated to 120 — the card shouldn't contain the full 200-char description
+    // Truncated to 120  - the card shouldn't contain the full 200-char description
     expect(card).not.toContain(longDesc);
     expect(card).toContain("…");
   });

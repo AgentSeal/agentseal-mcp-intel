@@ -2,17 +2,24 @@
 
 **Security scanner for MCP servers.** Check any MCP server for supply-chain threats before you install it -- directly from Claude, Cursor, or Windsurf.
 
-[![npm version](https://img.shields.io/npm/v/agentseal-mcp-intel)](https://www.npmjs.com/package/agentseal-mcp-intel)
-[![License: FSL-1.1-Apache-2.0](https://img.shields.io/badge/License-FSL--1.1-blue.svg)](LICENSE)
-
 <p align="center">
   <a href="https://agentseal.org/mcp">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://agentseal.org/logo-dark.png" />
-      <source media="(prefers-color-scheme: light)" srcset="https://agentseal.org/logo.png" />
-      <img src="https://agentseal.org/logo.png" alt="AgentSeal" height="80" />
-    </picture>
+    <img src="https://agentseal.org/icon-512.png" height="80" alt="AgentSeal" />
   </a>
+</p>
+
+<h3 align="center">Security scanner for MCP servers</h3>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/agentseal-mcp-intel"><img src="https://img.shields.io/npm/v/agentseal-mcp-intel?color=blue" alt="npm" /></a>
+  <a href="https://github.com/AgentSeal/agentseal-mcp-intel/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-FSL--1.1-blue" alt="License" /></a>
+  <a href="https://x.com/agentseal_org"><img src="https://img.shields.io/twitter/follow/agentseal_org" alt="Follow on X" /></a>
+</p>
+
+<p align="center">
+  <a href="https://agentseal.org/mcp">MCP Registry</a> &middot;
+  <a href="https://agentseal.org/pro">Pro</a> &middot;
+  <a href="https://agentseal.org">Website</a>
 </p>
 
 ---
@@ -331,7 +338,7 @@ The MCP server is a thin, auditable client. All scoring intelligence lives in th
 
 ## Security
 
-If you find a security vulnerability, please email [security@agentseal.org](mailto:security@agentseal.org) instead of opening a public issue.
+If you find a security vulnerability, please email [hello@agentseal.org](mailto:hello@agentseal.org) instead of opening a public issue.
 
 ---
 

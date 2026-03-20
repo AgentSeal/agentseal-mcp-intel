@@ -18,7 +18,7 @@ beforeEach(() => {
 
 // ── Claude Desktop format (mcpServers key) ───────────────────────────────────
 
-describe("parseConfigFile — Claude Desktop format", () => {
+describe("parseConfigFile  - Claude Desktop format", () => {
   it("extracts servers from mcpServers object", async () => {
     mockConfig({
       mcpServers: {
@@ -92,7 +92,7 @@ describe("parseConfigFile — Claude Desktop format", () => {
 
 // ── Cursor / Windsurf format (top-level keys) ────────────────────────────────
 
-describe("parseConfigFile — top-level format (Cursor/Windsurf)", () => {
+describe("parseConfigFile  - top-level format (Cursor/Windsurf)", () => {
   it("extracts servers with 'command' key at top level", async () => {
     mockConfig({
       "my-server": { command: "npx", args: ["-y", "my-mcp-server"] },
@@ -141,7 +141,7 @@ describe("parseConfigFile — top-level format (Cursor/Windsurf)", () => {
 
 // ── Error handling ────────────────────────────────────────────────────────────
 
-describe("parseConfigFile — error handling", () => {
+describe("parseConfigFile  - error handling", () => {
   it("returns empty array when file does not exist", async () => {
     mockReadFile.mockRejectedValue(Object.assign(new Error("ENOENT"), { code: "ENOENT" }));
     const servers = await parseConfigFile("/nonexistent.json");
@@ -175,7 +175,7 @@ describe("parseConfigFile — error handling", () => {
 
 // ── Credential extraction prevention ─────────────────────────────────────────
 
-describe("parseConfigFile — credential safety", () => {
+describe("parseConfigFile  - credential safety", () => {
   it("does NOT include env vars in returned server data", async () => {
     mockConfig({
       mcpServers: {

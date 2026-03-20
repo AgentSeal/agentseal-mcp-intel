@@ -57,25 +57,25 @@ describe("shortBar", () => {
 describe("verdictLine", () => {
   it("renders full verdict with score and level", () => {
     expect(verdictLine("my-server", "HIGH", 82)).toBe(
-      "[AgentSeal] my-server  ◈ HIGH — 82/100"
+      "[AgentSeal] my-server  ◈ HIGH  - 82/100"
     );
   });
 
   it("rounds fractional scores", () => {
     expect(verdictLine("my-server", "HIGH", 82.7)).toBe(
-      "[AgentSeal] my-server  ◈ HIGH — 83/100"
+      "[AgentSeal] my-server  ◈ HIGH  - 83/100"
     );
   });
 
   it("renders EXCELLENT with correct icon", () => {
     expect(verdictLine("safe-server", "EXCELLENT", 92)).toBe(
-      "[AgentSeal] safe-server  ◆ EXCELLENT — 92/100"
+      "[AgentSeal] safe-server  ◆ EXCELLENT  - 92/100"
     );
   });
 
   it("renders CRITICAL with correct icon", () => {
     expect(verdictLine("bad-server", "CRITICAL", 12)).toBe(
-      "[AgentSeal] bad-server  ✕ CRITICAL — 12/100"
+      "[AgentSeal] bad-server  ✕ CRITICAL  - 12/100"
     );
   });
 
@@ -93,7 +93,7 @@ describe("verdictLine", () => {
 
   it("appends annotation in parentheses", () => {
     expect(verdictLine("file.md", "MEDIUM", 55, "local")).toBe(
-      "[AgentSeal] file.md  ◇ MEDIUM — 55/100  (local)"
+      "[AgentSeal] file.md  ◇ MEDIUM  - 55/100  (local)"
     );
   });
 });
@@ -145,27 +145,27 @@ describe("severityIcon", () => {
 describe("alarmLine", () => {
   it("returns DO NOT INSTALL for CRITICAL level", () => {
     const line = alarmLine("CRITICAL", 0, 3);
-    expect(line).toBe("!! DO NOT INSTALL — 3 critical findings");
+    expect(line).toBe("!! DO NOT INSTALL  - 3 critical findings");
   });
 
   it("returns DO NOT INSTALL when criticalCount > 0 (any level)", () => {
     const line = alarmLine("MEDIUM", 2, 5);
-    expect(line).toBe("!! DO NOT INSTALL — 2 critical findings");
+    expect(line).toBe("!! DO NOT INSTALL  - 2 critical findings");
   });
 
   it("uses singular 'finding' when criticalCount is 1", () => {
     const line = alarmLine("CRITICAL", 1, 1);
-    expect(line).toBe("!! DO NOT INSTALL — 1 critical finding");
+    expect(line).toBe("!! DO NOT INSTALL  - 1 critical finding");
   });
 
   it("falls back to findingsCount when criticalCount is 0 on CRITICAL level", () => {
     const line = alarmLine("CRITICAL", 0, 5);
-    expect(line).toBe("!! DO NOT INSTALL — 5 critical findings");
+    expect(line).toBe("!! DO NOT INSTALL  - 5 critical findings");
   });
 
   it("returns HIGH RISK warning for LOW level", () => {
     const line = alarmLine("LOW", 0, 2);
-    expect(line).toBe("▽ HIGH RISK — review findings before installing");
+    expect(line).toBe("▽ HIGH RISK  - review findings before installing");
   });
 
   it("returns null for MEDIUM", () => {
@@ -204,7 +204,7 @@ describe("formatDate", () => {
   });
 
   it("returns 'Invalid Date' for unparseable date strings", () => {
-    // new Date("not-a-date").toLocaleDateString() returns "Invalid Date" — not the original string
+    // new Date("not-a-date").toLocaleDateString() returns "Invalid Date"  - not the original string
     expect(formatDate("not-a-date")).toBe("Invalid Date");
   });
 });

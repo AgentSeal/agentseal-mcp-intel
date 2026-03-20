@@ -31,7 +31,7 @@ export async function parseConfigFile(
   try {
     raw = await readFile(filePath, "utf-8");
   } catch {
-    // File doesn't exist or isn't readable — not an error
+    // File doesn't exist or isn't readable  - not an error
     return [];
   }
 
@@ -39,7 +39,7 @@ export async function parseConfigFile(
   try {
     parsed = JSON.parse(raw);
   } catch {
-    // Malformed JSON — skip silently
+    // Malformed JSON  - skip silently
     return [];
   }
 
@@ -48,7 +48,7 @@ export async function parseConfigFile(
 
   // Determine which key holds the server map.
   // If mcpServers is present and is an object, use it exclusively.
-  // If mcpServers is absent, fall back to the top-level object — but only
+  // If mcpServers is absent, fall back to the top-level object  - but only
   // for keys whose values look like server entries (have "command" or "url").
   const hasMcpServersKey =
     typeof obj["mcpServers"] === "object" && obj["mcpServers"] !== null;
@@ -64,7 +64,7 @@ export async function parseConfigFile(
     if (!value || typeof value !== "object") continue;
 
     // When falling back to top-level keys (no mcpServers), require the entry
-    // to look like a server config — must have "command" or "url" key.
+    // to look like a server config  - must have "command" or "url" key.
     // This prevents top-level config objects (e.g. "settings", "permissions")
     // from being treated as server entries.
     if (!hasMcpServersKey) {
@@ -74,7 +74,7 @@ export async function parseConfigFile(
 
     const entry = value as Record<string, unknown>;
 
-    // Extract only the server name/command for display — never credentials
+    // Extract only the server name/command for display  - never credentials
     // Command-based servers: { "command": "npx", "args": ["some-package"] }
     // URL-based servers: { "url": "https://..." }
     const displayName = resolveDisplayName(key, entry);

@@ -18,7 +18,7 @@ export const checkFileSchema = z.object({
 export type CheckFileArgs = z.infer<typeof checkFileSchema>;
 
 /**
- * Analyze an AI config file for security issues — hidden instructions,
+ * Analyze an AI config file for security issues  - hidden instructions,
  * prompt injection, data exfiltration patterns, and obfuscation.
  *
  * RUNS ENTIRELY LOCALLY. No data is sent to the AgentSeal API.
@@ -112,7 +112,7 @@ export async function checkFile(args: CheckFileArgs): Promise<string> {
   const DIVIDER = "── " + "─".repeat(60);
   const lines: string[] = [];
 
-  // Line 1: verdict (with local annotation — this never hits the network)
+  // Line 1: verdict (with local annotation  - this never hits the network)
   lines.push(verdictLine(filename, result.risk_level, result.risk_score, "local"));
 
   // Line 2: score bar

@@ -13,12 +13,12 @@ let _config: Config | undefined;
 
 /**
  * Read and validate environment variables.
- * Cached after first call — reads env vars once at startup.
+ * Cached after first call  - reads env vars once at startup.
  *
  * Supported env vars:
- *   AGENTSEAL_API_KEY   — Pro tier authentication (optional)
- *   AGENTSEAL_API_URL   — Override API base URL (optional, for self-hosted)
- *   AGENTSEAL_DEBUG     — Set to "1" for verbose stderr logging (optional)
+ *   AGENTSEAL_API_KEY    - Pro tier authentication (optional)
+ *   AGENTSEAL_API_URL    - Override API base URL (optional, for self-hosted)
+ *   AGENTSEAL_DEBUG      - Set to "1" for verbose stderr logging (optional)
  */
 export function getConfig(): Config {
   if (_config) return _config;
@@ -27,7 +27,7 @@ export function getConfig(): Config {
   const apiKey = process.env["AGENTSEAL_API_KEY"];
   const debug = process.env["AGENTSEAL_DEBUG"] === "1";
 
-  // Validate URL early — catches "I set the wrong env var" mistakes at startup
+  // Validate URL early  - catches "I set the wrong env var" mistakes at startup
   try {
     new URL(rawUrl);
   } catch {

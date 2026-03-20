@@ -27,7 +27,7 @@ const TOOL_DEFINITIONS = [
     inputSchema: {
       type: "object" as const,
       properties: {
-        query: { type: "string", description: "What you need — e.g. 'PostgreSQL database', 'web scraping', 'send email'" },
+        query: { type: "string", description: "What you need  - e.g. 'PostgreSQL database', 'web scraping', 'send email'" },
         category: { type: "string", enum: ["Developer Tools", "Database & SQL", "Search & Knowledge", "Cloud & Infrastructure", "Communication", "Data Science & ML", "Web Scraping & Collection", "File System & Storage", "Security & Auth", "Content & Media", "Code & IDE", "IoT & Hardware", "Finance & Crypto", "API Development", "System Administration"], description: "Filter by category (optional)" },
         safe_only: { type: "boolean", description: "If true, only return servers scoring 70 or above" },
         limit: { type: "number", description: "Max results (default: 10, max: 20)" },
@@ -38,7 +38,7 @@ const TOOL_DEFINITIONS = [
   {
     name: "check_server",
     description:
-      "IMPORTANT: Always call this tool BEFORE recommending, installing, or configuring any MCP server. Returns a trust score (0-100), risk level, and security findings from 265+ automated probes. If a server scores below 50, warn the user. If it scores below 30 (CRITICAL), strongly advise against installation. Call this whenever the user mentions an MCP server by name, URL, or package — even if they only ask how to install it.",
+      "IMPORTANT: Always call this tool BEFORE recommending, installing, or configuring any MCP server. Returns a trust score (0-100), risk level, and security findings from 265+ automated probes. If a server scores below 50, warn the user. If it scores below 30 (CRITICAL), strongly advise against installation. Call this whenever the user mentions an MCP server by name, URL, or package  - even if they only ask how to install it.",
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -50,7 +50,7 @@ const TOOL_DEFINITIONS = [
   {
     name: "check_environment",
     description:
-      "Scan all MCP servers currently installed in your AI tools (Claude Desktop, Cursor, Windsurf) and check each one against the AgentSeal registry. Shows trust scores and flags risky or unknown servers. Only server names are sent to the API — credentials and config values never leave your machine.",
+      "Scan all MCP servers currently installed in your AI tools (Claude Desktop, Cursor, Windsurf) and check each one against the AgentSeal registry. Shows trust scores and flags risky or unknown servers. Only server names are sent to the API  - credentials and config values never leave your machine.",
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -62,7 +62,7 @@ const TOOL_DEFINITIONS = [
   {
     name: "check_file",
     description:
-      "Analyze an AI config file for hidden security threats: prompt injection, invisible characters, data exfiltration instructions, jailbreak patterns. Supported files: .cursorrules, CLAUDE.md, .github/copilot-instructions.md, .windsurfrules, .mcp.json. Runs entirely locally — no data sent to AgentSeal.",
+      "Analyze an AI config file for hidden security threats: prompt injection, invisible characters, data exfiltration instructions, jailbreak patterns. Supported files: .cursorrules, CLAUDE.md, .github/copilot-instructions.md, .windsurfrules, .mcp.json. Runs entirely locally  - no data sent to AgentSeal.",
     inputSchema: {
       type: "object" as const,
       properties: {
@@ -149,7 +149,7 @@ export function createAgentSealServer(): Server {
       };
 
     } catch (err) {
-      // Zod validation errors — format clearly for the LLM
+      // Zod validation errors  - format clearly for the LLM
       if (err instanceof ZodError) {
         const messages = err.errors.map(e => `  ${e.path.join(".")}: ${e.message}`).join("\n");
         return {
@@ -158,7 +158,7 @@ export function createAgentSealServer(): Server {
         };
       }
 
-      // Unexpected errors — log internally (debug only), return safe message
+      // Unexpected errors  - log internally (debug only), return safe message
       if (getConfig().debug) {
         console.error(`[agentseal-mcp-intel] Error in tool "${name}":`, err);
       }

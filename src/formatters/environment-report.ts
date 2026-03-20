@@ -110,14 +110,14 @@ export function formatEnvironmentReport(
 
     for (const entry of attention) {
       if (!entry.result) {
-        sections.push(`? ${entry.name}  — not in AgentSeal registry`);
+        sections.push(`? ${entry.name}   - not in AgentSeal registry`);
         sections.push(`  ▸ submit_server("${entry.name}", "<npm|pypi|remote|docker>")`);
       } else {
         const r = entry.result;
         const icon = r.trust_level ? LEVEL_ICONS[r.trust_level] : "·";
         const score = r.trust_score !== null ? `${Math.round(r.trust_score)}/100` : "";
         const level = r.trust_level ?? "UNKNOWN";
-        sections.push(`${icon} ${entry.name}  — ${score} (${level})`);
+        sections.push(`${icon} ${entry.name}   - ${score} (${level})`);
         if (r.critical_count > 0) {
           const s = r.critical_count !== 1 ? "s" : "";
           sections.push(`  ${r.critical_count} critical finding${s} detected`);
